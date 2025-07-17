@@ -35,5 +35,3 @@ Aplikasi ini mengimplementasikan fungsionalitas CRUD secara lengkap dengan berba
   * **CSS3:** Mendesain antarmuka yang modern dan responsif menggunakan Flexbox dan Grid, serta animasi untuk interaksi yang lebih hidup.
   * **JavaScript (ES6+):** Menjadi inti dari semua logika aplikasi, ditulis dengan pendekatan **berbasis kelas (OOP)** untuk kode yang lebih terstruktur, modular, dan mudah dikelola.
   * **Web Storage API (`localStorage`):** Menyimpan semua data buku dan preferensi pengguna secara persisten di browser.
-
-an.
