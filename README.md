@@ -1,12 +1,20 @@
-# 📚 Pustaka Digital Pribadi
+# Pustaka Digital Pribadi 📚
 
-Sebuah aplikasi web modern dan responsif yang berfungsi sebagai katalog untuk mengelola dan melacak koleksi buku pribadi. Proyek ini merupakan pengembangan web front-end, khususnya operasi CRUD (Create, Read, Update, Delete) yang ditingkatkan dengan fitur-fitur modern untuk pengalaman pengguna yang lebih baik.
+## Description
 
------
+Pustaka Digital Pribadi adalah sebuah aplikasi web modern dan responsif yang berfungsi sebagai katalog untuk mengelola dan melacak koleksi buku pribadi. Proyek ini dikembangkan sebagai *Single Page Application* (SPA) yang berjalan sepenuhnya di sisi klien (browser), memastikan kecepatan, privasi, dan aksesibilitas bahkan saat offline. Semua data disimpan secara lokal di browser pengguna menggunakan `localStorage`, menghilangkan kebutuhan akan *database* atau *backend*.
 
-## ✨ Fitur Unggulan
+## Technologies Used
 
-Aplikasi ini mengimplementasikan fungsionalitas CRUD secara lengkap dengan berbagai peningkatan:
+  * **HTML5:** Membangun struktur dokumen yang semantik dan aksesibel.
+    
+  * **CSS3:** Mendesain antarmuka yang modern dan responsif menggunakan Flexbox dan Grid, serta animasi untuk interaksi yang lebih hidup.
+    
+  * **JavaScript (ES6+):** Menjadi inti dari semua logika aplikasi, ditulis dengan pendekatan berbasis kelas (OOP) untuk kode yang lebih terstruktur, modular, dan mudah dikelola.
+    
+  * **Web Storage API (`localStorage`):** Menyimpan semua data buku dan preferensi pengguna secara persisten di browser.
+
+## Features
 
   * **Tambah Buku (Create):** Menambahkan data buku baru melalui *modal popup* yang interaktif, dilengkapi dengan validasi input untuk memastikan integritas data.
     
@@ -23,15 +31,24 @@ Aplikasi ini mengimplementasikan fungsionalitas CRUD secara lengkap dengan berba
   * **Hapus Buku (Delete):** Menghapus buku dari koleksi dengan aman menggunakan dialog konfirmasi untuk mencegah kehilangan data yang tidak disengaja.
     
   * **Fitur Tambahan:**
-      * **Ekspor & Impor Data:** Mencadangkan dan memulihkan seluruh koleksi buku melalui file `.json`, memungkinkan transfer data antar perangkat.
+      * **Ekspor & Impor Data:** Mencadangkan dan memulihkan seluruh koleksi buku melalui file `.json`.
       * **Target Membaca:** Menetapkan target baca bulanan dan melacak progresnya secara visual.
       * **Dasbor Statistik:** Melihat ringkasan data seperti total buku, jumlah buku selesai, dan total halaman yang telah dibaca.
+      * **Antarmuka Modern:** Dilengkapi *scroll lock* saat modal aktif untuk pengalaman pengguna yang lebih mulus.
 
------
+## Setup Instructions
 
-## 🛠️ Teknologi & Arsitektur
+Navigasi ke dalam folder proyek yang telah diunduh, lalu buka langsung file `index.html` menggunakan browser modern seperti Google Chrome atau Mozilla Firefox. Tidak ada proses *build* atau dependensi yang diperlukan untuk menjalankan aplikasi ini.
 
-  * **HTML5:** Membangun struktur dokumen yang semantik dan aksesibel.
-  * **CSS3:** Mendesain antarmuka yang modern dan responsif menggunakan Flexbox dan Grid, serta animasi untuk interaksi yang lebih hidup.
-  * **JavaScript (ES6+):** Menjadi inti dari semua logika aplikasi, ditulis dengan pendekatan **berbasis kelas (OOP)** untuk kode yang lebih terstruktur, modular, dan mudah dikelola.
-  * **Web Storage API (`localStorage`):** Menyimpan semua data buku dan preferensi pengguna secara persisten di browser.
+
+## AI Support Explanation
+
+Dalam pengembangan proyek ini, IBM Granite digunakan sebagai **asisten pengembangan** untuk meningkatkan efisiensi dan kualitas kode. Berikut adalah cara penggunaannya:
+
+  * **Code Generation:** AI digunakan untuk menghasilkan HTML dan struktur dasar CSS yang terbukti dapat mempercepat fase setup awal proyek.
+    
+  * **Logic & Algorithm Assistance:** Saat merancang fungsi untuk menyimpan dan memuat data dari `localStorage`, AI dikonsultasikan untuk mendapatkan praktik terbaik dalam serialisasi dan deserialisasi data.
+    
+  * **Debugging:** AI membantu mengidentifikasi dan menyelesaikan *bug* dengan cepat, seperti saat memperbaiki *bug* di mana status buku tidak diperbarui dengan benar.
+    
+  * **Code Refactoring:** Setelah fungsionalitas dasar selesai, AI digunakan untuk me-*refactor* kode agar lebih modular.
