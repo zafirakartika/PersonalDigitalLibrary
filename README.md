@@ -52,3 +52,6 @@ Dalam pengembangan proyek ini, IBM Granite digunakan sebagai **asisten pengemban
   * **Debugging:** AI membantu mengidentifikasi dan menyelesaikan *bug* dengan cepat, seperti saat memperbaiki *bug* di mana status buku tidak diperbarui dengan benar.
     
   * **Code Refactoring:** Setelah fungsionalitas dasar selesai, AI digunakan untuk me-*refactor* kode agar lebih modular.
+
+
+Website ini dapat diakses pada link berikut: `https://personal-digital-library.netlify.app/`
