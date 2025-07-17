@@ -4,6 +4,7 @@
 
 Pustaka Digital Pribadi adalah sebuah aplikasi web modern dan responsif yang berfungsi sebagai katalog untuk mengelola dan melacak koleksi buku pribadi. Proyek ini dikembangkan sebagai *Single Page Application* (SPA) yang berjalan sepenuhnya di sisi klien (browser), memastikan kecepatan, privasi, dan aksesibilitas bahkan saat offline. Semua data disimpan secara lokal di browser pengguna menggunakan `localStorage`, menghilangkan kebutuhan akan *database* atau *backend*.
 
+
 ## Technologies Used
 
   * **HTML5:** Membangun struktur dokumen yang semantik dan aksesibel.
@@ -13,6 +14,7 @@ Pustaka Digital Pribadi adalah sebuah aplikasi web modern dan responsif yang ber
   * **JavaScript (ES6+):** Menjadi inti dari semua logika aplikasi, ditulis dengan pendekatan berbasis kelas (OOP) untuk kode yang lebih terstruktur, modular, dan mudah dikelola.
     
   * **Web Storage API (`localStorage`):** Menyimpan semua data buku dan preferensi pengguna secara persisten di browser.
+
 
 ## Features
 
@@ -36,6 +38,7 @@ Pustaka Digital Pribadi adalah sebuah aplikasi web modern dan responsif yang ber
       * **Dasbor Statistik:** Melihat ringkasan data seperti total buku, jumlah buku selesai, dan total halaman yang telah dibaca.
       * **Antarmuka Modern:** Dilengkapi *scroll lock* saat modal aktif untuk pengalaman pengguna yang lebih mulus.
 
+
 ## Setup Instructions
 
 Navigasi ke dalam folder proyek yang telah diunduh, lalu buka langsung file `index.html` menggunakan browser modern seperti Google Chrome atau Mozilla Firefox. Tidak ada proses *build* atau dependensi yang diperlukan untuk menjalankan aplikasi ini.
@@ -54,4 +57,5 @@ Dalam pengembangan proyek ini, IBM Granite digunakan sebagai **asisten pengemban
   * **Code Refactoring:** Setelah fungsionalitas dasar selesai, AI digunakan untuk me-*refactor* kode agar lebih modular.
 
 
+## Deployment Link
 Website ini dapat diakses pada link berikut: https://personal-digital-library.netlify.app/
