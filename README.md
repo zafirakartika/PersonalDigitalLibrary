@@ -54,4 +54,4 @@ Dalam pengembangan proyek ini, IBM Granite digunakan sebagai **asisten pengemban
   * **Code Refactoring:** Setelah fungsionalitas dasar selesai, AI digunakan untuk me-*refactor* kode agar lebih modular.
 
 
-Website ini dapat diakses pada link berikut: `https://personal-digital-library.netlify.app/`
+Website ini dapat diakses pada link berikut: https://personal-digital-library.netlify.app/
