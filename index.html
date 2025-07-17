@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pustaka Digital Pribadi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="header">
+                <h1>Pustaka Digital</h1>
+                <p>Kelola koleksi buku Anda dengan mudah</p>
+            </div>
+
+            <div class="form-card">
+                <h2>➕ Tambah Buku Baru</h2>
+                <button id="openAddBookModal" class="btn btn-primary">Tambah Buku</button>
+            </div>
+
+            <div class="form-card">
+                <h2>🎯 Target Membaca</h2>
+                <div class="form-group">
+                    <label for="readingGoal">Target Buku per Bulan</label>
+                    <input type="number" id="readingGoal" min="1" value="3" placeholder="3">
+                </div>
+                <div class="progress-section">
+                    <div class="progress-text">
+                        <span>Progres Bulan Ini</span>
+                        <span id="monthlyProgress">0/3</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="monthlyProgressBar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h2>💾 Kelola Data</h2>
+                <div class="button-group">
+                    <button id="exportDataBtn" class="btn btn-primary">Ekspor Data</button>
+                    <input type="file" id="importFileInput" accept=".json" style="display: none;">
+                    <button id="importDataBtn" class="btn btn-primary">Impor Data</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-value" id="totalBooks">0</div>
+                    <div class="stat-label">Total Buku</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-value" id="completedBooks">0</div>
+                    <div class="stat-label">Selesai Dibaca</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📖</div>
+                    <div class="stat-value" id="readingBooks">0</div>
+                    <div class="stat-label">Sedang Dibaca</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+                    <div class="stat-value" id="totalPagesRead">0</div>
+                    <div class="stat-label">Total Halaman Dibaca</div>
+                </div>
+            </div>
+
+            <div class="search-section">
+                <div class="search-bar">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" id="searchInput" placeholder="Cari buku berdasarkan judul, penulis, atau kategori...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="reading">Sedang Dibaca</button>
+                    <button class="filter-btn" data-filter="completed">Selesai</button>
+                    <button class="filter-btn" data-filter="Fiksi">Fiksi</button>
+                    <button class="filter-btn" data-filter="Non-Fiksi">Non-Fiksi</button>
+                    <button class="filter-btn" data-filter="Biografi">Biografi</button>
+                    <button class="filter-btn" data-filter="Teknologi">Teknologi</button>
+                    <button class="filter-btn" data-filter="Sejarah">Sejarah</button>
+                    <button class="filter-btn" data-filter="Sains">Sains</button>
+                    <button class="filter-btn" data-filter="Bisnis">Bisnis</button>
+                    <button class="filter-btn" data-filter="Lainnya">Lainnya</button>
+                </div>
+            </div>
+
+            <div id="bookGrid" class="book-grid">
+                </div>
+
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <div class="empty-icon">📚</div>
+                <h3>Rak buku Anda masih kosong</h3>
+                <p>Mulai tambahkan buku pertama Anda untuk memulai journey membaca!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-action" id="scrollToTop" title="Scroll to Top">
+        ⬆️
+    </div>
+
+    <div class="notification" id="notification">
+        <span id="notificationText"></span>
+    </div>
+
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>➕ Tambah Buku Baru</h2>
+            <form id="addBookForm">
+                <div class="form-group">
+                    <label for="title">Judul Buku</label>
+                    <input type="text" id="title" required placeholder="Masukkan judul buku">
+                    <div class="error-message" id="titleError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="author">Penulis</label>
+                    <input type="text" id="author" required placeholder="Nama penulis">
+                    <div class="error-message" id="authorError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="category">Kategori</label>
+                    <select id="category">
+                        <option value="Fiksi">📖 Fiksi</option>
+                        <option value="Non-Fiksi">📚 Non-Fiksi</option>
+                        <option value="Biografi">👤 Biografi</option>
+                        <option value="Teknologi">💻 Teknologi</option>
+                        <option value="Sejarah">🏛️ Sejarah</option>
+                        <option value="Sains">🔬 Sains</option>
+                        <option value="Bisnis">💼 Bisnis</option>
+                        <option value="Lainnya">📝 Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="totalPages">Total Halaman</label>
+                    <input type="number" id="totalPages" min="1" required placeholder="Jumlah halaman">
+                    <div class="error-message" id="totalPagesError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Tambahkan ke Rak</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editBookModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>✏️ Edit Buku</h2>
+            <form id="editBookForm">
+                <input type="hidden" id="editBookId">
+                <div class="form-group">
+                    <label for="editTitle">Judul Buku</label>
+                    <input type="text" id="editTitle" required>
+                    <div class="error-message" id="editTitleError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="editAuthor">Penulis</label>
+                    <input type="text" id="editAuthor" required>
+                    <div class="error-message" id="editAuthorError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="editCategory">Kategori</label>
+                    <select id="editCategory">
+                        <option value="Fiksi">📖 Fiksi</option>
+                        <option value="Non-Fiksi">📚 Non-Fiksi</option>
+                        <option value="Biografi">👤 Biografi</option>
+                        <option value="Teknologi">💻 Teknologi</option>
+                        <option value="Sejarah">🏛️ Sejarah</option>
+                        <option value="Sains">🔬 Sains</option>
+                        <option value="Bisnis">💼 Bisnis</option>
+                        <option value="Lainnya">📝 Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editTotalPages">Total Halaman</label>
+                    <input type="number" id="editTotalPages" min="1" required>
+                    <div class="error-message" id="editTotalPagesError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
